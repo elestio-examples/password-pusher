@@ -2,26 +2,30 @@ version: "3.3"
 services:
   db:
     image: elestio/mysql:8.0
+    restart: always
     ports:
       - "172.17.0.1:50632:3306"
     environment:
-      MYSQL_USER: "pwpush"
-      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
-      MYSQL_DATABASE: "pwpush"
-      MYSQL_ROOT_PASSWORD: ${MYSQL_PASSWORD}
+      - MYSQL_USER=pwpush
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD}
+      - MYSQL_DATABASE=pwpush
+      - MYSQL_ROOT_PASSWORD=${MYSQL_PASSWORD}
     volumes:
       - ./storage/mysql:/var/lib/mysql
 
   pwpush:
-    image: docker.io/pglombardo/pwpush-mysql:release
+    image: pglombardo/pwpush:release
+    restart: always
     ports:
       - "172.17.0.1:33140:5100"
+    env_file:
+      - ./.env
     depends_on:
       - db
     links:
       - db:mysql
     volumes:
-      - ./storage/pwpush:/opt/PasswordPusher/storage:rw
+      - ./storage:/opt/PasswordPusher/storage
 
   pma:
     image: elestio/phpmyadmin:latest
