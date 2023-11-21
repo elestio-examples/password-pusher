@@ -14,7 +14,7 @@ services:
       - ./mysql:/var/lib/mysql
 
   pwpush:
-    image: eleastio4test/pwpush:latest
+    image: elestio4test/password-pusher:latest
     restart: always
     ports:
       - "172.17.0.1:33140:5100"
