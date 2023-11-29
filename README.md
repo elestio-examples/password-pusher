@@ -18,6 +18,6 @@ You can open Password Pusher UI here:
 
 You can open PHPMyAdmin web UI here:
 
-    URL: https://[CI_CD_DOMAIN]:46840
+    URL: https://[CI_CD_DOMAIN]:48846
     email: [ADMIN_EMAIL]
     password: [ADMIN_PASSWORD]
