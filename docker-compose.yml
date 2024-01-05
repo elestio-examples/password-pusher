@@ -14,7 +14,7 @@ services:
       - ./mysql:/var/lib/mysql
 
   pwpush:
-    image: pglombardo/pwpush:release
+    image: elestio/password-pusher:${SOFTWARE_VERSION_TAG}
     restart: always
     ports:
       - "172.17.0.1:33140:5100"
