@@ -80,6 +80,8 @@ environments:
     value: "true"
   - key: "PWP__LOG_TO_STDOUT"
     value: "true"
+  - key: "MAILER_SENDER"
+    value: "[DOMAIN]@vm.elestio.app"
 
 config:
   runTime: "dockerCompose"
